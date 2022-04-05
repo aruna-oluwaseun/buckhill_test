@@ -1,0 +1,216 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your super  ApplicationAPI",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/user/create": {
+            "post": {
+                "tags": [
+                    "User Endpoint"
+                ],
+                "summary": "Create endpoint for Users",
+                "description": "Register Users",
+                "operationId": "Registration",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "description": "Password Confirmation",
+                        "required": true
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "description": "Firstname",
+                        "required": true
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "description": "Lastname",
+                        "required": true
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "Address",
+                        "required": true
+                    },
+                    {
+                        "name": "phone_number",
+                        "in": "query",
+                        "description": "Phone Number",
+                        "required": true
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "query",
+                        "description": "Avatar Image UUID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "401": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/login": {
+            "post": {
+                "tags": [
+                    "User Endpoint"
+                ],
+                "summary": "Sign in",
+                "description": "Login by email, password",
+                "operationId": "authLogin",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "401": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/user": {
+            "get": {
+                "tags": [
+                    "User Endpoint"
+                ],
+                "summary": "View a User Account",
+                "description": "Get profile short information",
+                "operationId": "user",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "401": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "User Endpoint"
+                ],
+                "summary": "View a User Account",
+                "description": "Get profile short information",
+                "operationId": "user delete",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "401": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/logout": {
+            "get": {
+                "tags": [
+                    "User Endpoint"
+                ],
+                "summary": "Logout",
+                "description": "Get profile short information",
+                "operationId": "Logout active user",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "401": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
